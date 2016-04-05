@@ -1,0 +1,27 @@
+{
+  "name": "domus",
+  "version": "0.0.1",
+  "description": "Deriveable Snabbdom",
+  "main": "index.js",
+  "dependencies": {
+    "hyperscript-helpers": "^2.1.1",
+    "snabbdom": "^0.4.2"
+  },
+  "devDependencies": {
+    "standard": "^6.0.8",
+    "tape": "^4.5.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oskbor/domus.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oskbor/domus/issues"
+  },
+  "homepage": "https://github.com/oskbor/domus#readme"
+}
