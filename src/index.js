@@ -1,6 +1,13 @@
 import h from 'snabbdom/h'
-
 import init from 'snabbdom'
+
+import ClassModule from 'snabbdom/modules/class'
+import PropsModule from 'snabbdom/modules/props'
+import AttrsModule from 'snabbdom/modules/attributes'
+import EventsModule from 'snabbdom/modules/eventlisteners'
+import StyleModule from 'snabbdom/modules/style'
+
+const patch = init([ClassModule, PropsModule, StyleModule, EventsModule, AttrsModule])
 
 import hh from 'hyperscript-helpers'
 const {
@@ -29,5 +36,13 @@ export {
   ruby, s, samp, script, section, select, small, source, span,
   strong, style, sub, sup, table, tbody, td, textarea, tfoot,
   th, thead, title, tr, u, ul, video,
-  h, init
+  h
+}
+
+export function render(derivable, domElement) {
+  let latestRender = domElement
+  derivable.react((ddom) => {
+    patch(latestRender, ddom)
+    latestRender = ddom
+  })
 }
