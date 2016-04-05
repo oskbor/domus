@@ -14,7 +14,7 @@
     "tape": "^4.5.1"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "standard",
     "build": "babel src -o dist/domus.js"
   },
   "repository": {
