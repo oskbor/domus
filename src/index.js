@@ -9,6 +9,14 @@ import StyleModule from 'snabbdom/modules/style'
 
 const patch = init([ClassModule, PropsModule, StyleModule, EventsModule, AttrsModule])
 
+function render(derivable, domElement) {
+  let latestRender = domElement
+  derivable.react((ddom) => {
+    patch(latestRender, ddom)
+    latestRender = ddom
+  })
+}
+
 import hh from 'hyperscript-helpers'
 const {
   a, abbr, address, area, article, aside, audio, b, base,
@@ -24,7 +32,7 @@ const {
   th, thead, title, tr, u, ul, video
 } = hh(h)
 
-export {
+export default {
   a, abbr, address, area, article, aside, audio, b, base,
   bdi, bdo, blockquote, body, br, button, canvas, caption,
   cite, code, col, colgroup, dd, del, dfn, dir, div, dl,
@@ -36,13 +44,5 @@ export {
   ruby, s, samp, script, section, select, small, source, span,
   strong, style, sub, sup, table, tbody, td, textarea, tfoot,
   th, thead, title, tr, u, ul, video,
-  h
-}
-
-export function render(derivable, domElement) {
-  let latestRender = domElement
-  derivable.react((ddom) => {
-    patch(latestRender, ddom)
-    latestRender = ddom
-  })
+  h, render
 }
