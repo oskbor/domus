@@ -1,5 +1,5 @@
 import h from 'snabbdom/h'
-import init from 'snabbdom'
+import {init} from 'snabbdom'
 
 import ClassModule from 'snabbdom/modules/class'
 import PropsModule from 'snabbdom/modules/props'
